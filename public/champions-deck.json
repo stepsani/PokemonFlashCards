@@ -1,0 +1,1553 @@
+{
+  "source": "pokemon-champions",
+  "sourceVersion": "pikalytics-champions-usage>2+@smogon/calc@0.11.0",
+  "generatedAt": "2026-04-21T13:05:36.485Z",
+  "notes": "Generated from Pikalytics Champions Tournaments usage list (usage > 2%) and computed with @smogon/calc Gen 9 formulas. Includes only species successfully resolved by calculator data.",
+  "cards": [
+    {
+      "id": "d-regma-1",
+      "type": "damage",
+      "attacker": "252+ SpA Mega Charizard Y",
+      "move": "Heat Wave",
+      "defender": "Sand, 252 HP / 128 Def / 128 SpD Tyranitar",
+      "attackerInfo": {
+        "name": "Mega Charizard Y",
+        "spriteId": "megacharizardy",
+        "types": [
+          "Fire",
+          "Flying"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Tyranitar",
+        "spriteId": "tyranitar",
+        "types": [
+          "Rock",
+          "Dark"
+        ]
+      },
+      "expectedMin": 11.1,
+      "expectedMax": 13,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup, Sand active"
+    },
+    {
+      "id": "d-regma-2",
+      "type": "damage",
+      "attacker": "252+ Atk Aegislash (Blade Forme)",
+      "move": "Iron Head",
+      "defender": "252 HP / 128 Def / 128 SpD Aggron",
+      "attackerInfo": {
+        "name": "Aegislash (Blade Forme)",
+        "spriteId": "aegislashblade",
+        "types": [
+          "Steel",
+          "Ghost"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Aggron",
+        "spriteId": "aggron",
+        "types": [
+          "Steel",
+          "Rock"
+        ]
+      },
+      "expectedMin": 23.7,
+      "expectedMax": 27.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-4",
+      "type": "damage",
+      "attacker": "252+ Atk Excadrill",
+      "move": "Earthquake",
+      "defender": "252 HP / 128 Def / 128 SpD Kommo-O",
+      "attackerInfo": {
+        "name": "Excadrill",
+        "spriteId": "excadrill",
+        "types": [
+          "Ground",
+          "Steel"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Kommo-O",
+        "spriteId": "kommoo",
+        "types": [
+          "Dragon",
+          "Fighting"
+        ]
+      },
+      "expectedMin": 26.9,
+      "expectedMax": 31.9,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-5",
+      "type": "damage",
+      "attacker": "252+ SpA Volcarona",
+      "move": "Bug Buzz",
+      "defender": "252 HP / 128 Def / 128 SpD Milotic",
+      "attackerInfo": {
+        "name": "Volcarona",
+        "spriteId": "volcarona",
+        "types": [
+          "Bug",
+          "Fire"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Milotic",
+        "spriteId": "milotic",
+        "types": [
+          "Water"
+        ]
+      },
+      "expectedMin": 28.7,
+      "expectedMax": 34.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-6",
+      "type": "damage",
+      "attacker": "252+ Atk Tyranitar",
+      "move": "Stone Edge",
+      "defender": "252 HP / 128 Def / 128 SpD Sylveon",
+      "attackerInfo": {
+        "name": "Tyranitar",
+        "spriteId": "tyranitar",
+        "types": [
+          "Rock",
+          "Dark"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Sylveon",
+        "spriteId": "sylveon",
+        "types": [
+          "Fairy"
+        ]
+      },
+      "expectedMin": 56.4,
+      "expectedMax": 66.8,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-7",
+      "type": "damage",
+      "attacker": "252+ Atk Dragonite",
+      "move": "Dragon Claw",
+      "defender": "252 HP / 128 Def / 128 SpD Garchomp",
+      "attackerInfo": {
+        "name": "Dragonite",
+        "spriteId": "dragonite",
+        "types": [
+          "Dragon",
+          "Flying"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Garchomp",
+        "spriteId": "garchomp",
+        "types": [
+          "Dragon",
+          "Ground"
+        ]
+      },
+      "expectedMin": 59.5,
+      "expectedMax": 70.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-8",
+      "type": "damage",
+      "attacker": "252+ Atk Sneasler",
+      "move": "Close Combat",
+      "defender": "252 HP / 128 Def / 128 SpD Corviknight",
+      "attackerInfo": {
+        "name": "Sneasler",
+        "spriteId": "sneasler",
+        "types": [
+          "Fighting",
+          "Poison"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Corviknight",
+        "spriteId": "corviknight",
+        "types": [
+          "Flying",
+          "Steel"
+        ]
+      },
+      "expectedMin": 42.9,
+      "expectedMax": 51.2,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-9",
+      "type": "damage",
+      "attacker": "252+ Atk Garchomp",
+      "move": "Dragon Claw",
+      "defender": "252 HP / 128 Def / 128 SpD Dragonite",
+      "attackerInfo": {
+        "name": "Garchomp",
+        "spriteId": "garchomp",
+        "types": [
+          "Dragon",
+          "Ground"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Dragonite",
+        "spriteId": "dragonite",
+        "types": [
+          "Dragon",
+          "Flying"
+        ]
+      },
+      "expectedMin": 69.7,
+      "expectedMax": 82.8,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-10",
+      "type": "damage",
+      "attacker": "252+ SpA Gengar",
+      "move": "Shadow Ball",
+      "defender": "252 HP / 128 Def / 128 SpD Archaludon",
+      "attackerInfo": {
+        "name": "Gengar",
+        "spriteId": "gengar",
+        "types": [
+          "Ghost",
+          "Poison"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Archaludon",
+        "spriteId": "archaludon",
+        "types": [
+          "Steel",
+          "Dragon"
+        ]
+      },
+      "expectedMin": 45.7,
+      "expectedMax": 53.8,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-11",
+      "type": "damage",
+      "attacker": "252+ SpA Glimmora",
+      "move": "Power Gem",
+      "defender": "252 HP / 128 Def / 128 SpD Meganium",
+      "attackerInfo": {
+        "name": "Glimmora",
+        "spriteId": "glimmora",
+        "types": [
+          "Rock",
+          "Poison"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Meganium",
+        "spriteId": "meganium",
+        "types": [
+          "Grass"
+        ]
+      },
+      "expectedMin": 35.8,
+      "expectedMax": 42.2,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-12",
+      "type": "damage",
+      "attacker": "252+ Atk Scizor",
+      "move": "X-Scissor",
+      "defender": "252 HP / 128 Def / 128 SpD Torkoal",
+      "attackerInfo": {
+        "name": "Scizor",
+        "spriteId": "scizor",
+        "types": [
+          "Bug",
+          "Steel"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Torkoal",
+        "spriteId": "torkoal",
+        "types": [
+          "Fire"
+        ]
+      },
+      "expectedMin": 13.6,
+      "expectedMax": 15.8,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-13",
+      "type": "damage",
+      "attacker": "252+ SpA Primarina",
+      "move": "Hydro Pump",
+      "defender": "252 HP / 128 Def / 128 SpD Incineroar",
+      "attackerInfo": {
+        "name": "Primarina",
+        "spriteId": "primarina",
+        "types": [
+          "Water",
+          "Fairy"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Incineroar",
+        "spriteId": "incineroar",
+        "types": [
+          "Fire",
+          "Dark"
+        ]
+      },
+      "expectedMin": 95,
+      "expectedMax": 112.9,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-14",
+      "type": "damage",
+      "attacker": "252+ SpA Archaludon",
+      "move": "Flash Cannon",
+      "defender": "252 HP / 128 Def / 128 SpD Gyarados",
+      "attackerInfo": {
+        "name": "Archaludon",
+        "spriteId": "archaludon",
+        "types": [
+          "Steel",
+          "Dragon"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Gyarados",
+        "spriteId": "gyarados",
+        "types": [
+          "Water",
+          "Flying"
+        ]
+      },
+      "expectedMin": 14.4,
+      "expectedMax": 17.3,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-15",
+      "type": "damage",
+      "attacker": "252+ SpA Gardevoir",
+      "move": "Psychic",
+      "defender": "252 HP / 128 Def / 128 SpD Mega Charizard Y",
+      "attackerInfo": {
+        "name": "Gardevoir",
+        "spriteId": "gardevoir",
+        "types": [
+          "Psychic",
+          "Fairy"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Mega Charizard Y",
+        "spriteId": "megacharizardy",
+        "types": [
+          "Fire",
+          "Flying"
+        ]
+      },
+      "expectedMin": 32.4,
+      "expectedMax": 38.9,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-16",
+      "type": "damage",
+      "attacker": "252+ Atk Gyarados",
+      "move": "Aqua Tail",
+      "defender": "252 HP / 128 Def / 128 SpD Primarina",
+      "attackerInfo": {
+        "name": "Gyarados",
+        "spriteId": "gyarados",
+        "types": [
+          "Water",
+          "Flying"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Primarina",
+        "spriteId": "primarina",
+        "types": [
+          "Water",
+          "Fairy"
+        ]
+      },
+      "expectedMin": 24.1,
+      "expectedMax": 28.3,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-17",
+      "type": "damage",
+      "attacker": "252+ Atk Golurk",
+      "move": "Earthquake",
+      "defender": "252 HP / 128 Def / 128 SpD Politoed",
+      "attackerInfo": {
+        "name": "Golurk",
+        "spriteId": "golurk",
+        "types": [
+          "Ground",
+          "Ghost"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Politoed",
+        "spriteId": "politoed",
+        "types": [
+          "Water"
+        ]
+      },
+      "expectedMin": 37.1,
+      "expectedMax": 44.2,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-18",
+      "type": "damage",
+      "attacker": "252+ SpA Sinistcha",
+      "move": "Energy Ball",
+      "defender": "252 HP / 128 Def / 128 SpD Kangaskhan",
+      "attackerInfo": {
+        "name": "Sinistcha",
+        "spriteId": "sinistcha",
+        "types": [
+          "Grass",
+          "Ghost"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Kangaskhan",
+        "spriteId": "kangaskhan",
+        "types": [
+          "Normal"
+        ]
+      },
+      "expectedMin": 39.6,
+      "expectedMax": 46.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-19",
+      "type": "damage",
+      "attacker": "252+ Atk Dragapult",
+      "move": "Dragon Claw",
+      "defender": "252 HP / 128 Def / 128 SpD Rotom-Wash",
+      "attackerInfo": {
+        "name": "Dragapult",
+        "spriteId": "dragapult",
+        "types": [
+          "Dragon",
+          "Ghost"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Rotom-Wash",
+        "spriteId": "rotomwash",
+        "types": [
+          "Electric",
+          "Water"
+        ]
+      },
+      "expectedMin": 35,
+      "expectedMax": 42,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-20",
+      "type": "damage",
+      "attacker": "252+ SpA Typhlosion-Hisui",
+      "move": "Heat Wave",
+      "defender": "252 HP / 128 Def / 128 SpD Rotom-Heat",
+      "attackerInfo": {
+        "name": "Typhlosion-Hisui",
+        "spriteId": "typhlosionhisui",
+        "types": [
+          "Fire",
+          "Ghost"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Rotom-Heat",
+        "spriteId": "rotomheat",
+        "types": [
+          "Electric",
+          "Fire"
+        ]
+      },
+      "expectedMin": 16.6,
+      "expectedMax": 19.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-21",
+      "type": "damage",
+      "attacker": "252+ Atk Incineroar",
+      "move": "Flare Blitz",
+      "defender": "252 HP / 128 Def / 128 SpD Venusaur",
+      "attackerInfo": {
+        "name": "Incineroar",
+        "spriteId": "incineroar",
+        "types": [
+          "Fire",
+          "Dark"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Venusaur",
+        "spriteId": "venusaur",
+        "types": [
+          "Grass",
+          "Poison"
+        ]
+      },
+      "expectedMin": 112.3,
+      "expectedMax": 132.6,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-22",
+      "type": "damage",
+      "attacker": "252+ Atk Arcanine-Hisui",
+      "move": "Flare Blitz",
+      "defender": "252 HP / 128 Def / 128 SpD Basculegion",
+      "attackerInfo": {
+        "name": "Arcanine-Hisui",
+        "spriteId": "arcaninehisui",
+        "types": [
+          "Fire",
+          "Rock"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Basculegion",
+        "spriteId": "basculegion",
+        "types": [
+          "Water",
+          "Ghost"
+        ]
+      },
+      "expectedMin": 26.9,
+      "expectedMax": 31.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-23",
+      "type": "damage",
+      "attacker": "252+ SpA Delphox",
+      "move": "Heat Wave",
+      "defender": "252 HP / 128 Def / 128 SpD Farigiraf",
+      "attackerInfo": {
+        "name": "Delphox",
+        "spriteId": "delphox",
+        "types": [
+          "Fire",
+          "Psychic"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Farigiraf",
+        "spriteId": "farigiraf",
+        "types": [
+          "Normal",
+          "Psychic"
+        ]
+      },
+      "expectedMin": 30.4,
+      "expectedMax": 36.1,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-24",
+      "type": "damage",
+      "attacker": "252+ Atk Basculegion",
+      "move": "Liquidation",
+      "defender": "252 HP / 128 Def / 128 SpD Aegislash (Shield Forme)",
+      "attackerInfo": {
+        "name": "Basculegion",
+        "spriteId": "basculegion",
+        "types": [
+          "Water",
+          "Ghost"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Aegislash (Shield Forme)",
+        "spriteId": "aegislashshield",
+        "types": [
+          "Steel",
+          "Ghost"
+        ]
+      },
+      "expectedMin": 26.9,
+      "expectedMax": 32.3,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-25",
+      "type": "damage",
+      "attacker": "252+ SpA Farigiraf",
+      "move": "Hyper Voice",
+      "defender": "Sand, 252 HP / 128 Def / 128 SpD Tyranitar",
+      "attackerInfo": {
+        "name": "Farigiraf",
+        "spriteId": "farigiraf",
+        "types": [
+          "Normal",
+          "Psychic"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Tyranitar",
+        "spriteId": "tyranitar",
+        "types": [
+          "Rock",
+          "Dark"
+        ]
+      },
+      "expectedMin": 7.7,
+      "expectedMax": 9.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup, Sand active"
+    },
+    {
+      "id": "d-regma-26",
+      "type": "damage",
+      "attacker": "252+ Atk Kommo-O",
+      "move": "Dragon Claw",
+      "defender": "252 HP / 128 Def / 128 SpD Aggron",
+      "attackerInfo": {
+        "name": "Kommo-O",
+        "spriteId": "kommoo",
+        "types": [
+          "Dragon",
+          "Fighting"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Aggron",
+        "spriteId": "aggron",
+        "types": [
+          "Steel",
+          "Rock"
+        ]
+      },
+      "expectedMin": 9.6,
+      "expectedMax": 11.9,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-27",
+      "type": "damage",
+      "attacker": "252+ SpA Sylveon",
+      "move": "Moonblast",
+      "defender": "252 HP / 128 Def / 128 SpD Kingambit",
+      "attackerInfo": {
+        "name": "Sylveon",
+        "spriteId": "sylveon",
+        "types": [
+          "Fairy"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Kingambit",
+        "spriteId": "kingambit",
+        "types": [
+          "Dark",
+          "Steel"
+        ]
+      },
+      "expectedMin": 38.2,
+      "expectedMax": 45.4,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-28",
+      "type": "damage",
+      "attacker": "252+ Atk Aggron",
+      "move": "Iron Head",
+      "defender": "252 HP / 128 Def / 128 SpD Kommo-O",
+      "attackerInfo": {
+        "name": "Aggron",
+        "spriteId": "aggron",
+        "types": [
+          "Steel",
+          "Rock"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Kommo-O",
+        "spriteId": "kommoo",
+        "types": [
+          "Dragon",
+          "Fighting"
+        ]
+      },
+      "expectedMin": 25.3,
+      "expectedMax": 30.2,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-29",
+      "type": "damage",
+      "attacker": "252+ SpA Rotom-Wash",
+      "move": "Thunderbolt",
+      "defender": "252 HP / 128 Def / 128 SpD Milotic",
+      "attackerInfo": {
+        "name": "Rotom-Wash",
+        "spriteId": "rotomwash",
+        "types": [
+          "Electric",
+          "Water"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Milotic",
+        "spriteId": "milotic",
+        "types": [
+          "Water"
+        ]
+      },
+      "expectedMin": 50.5,
+      "expectedMax": 59.4,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-30",
+      "type": "damage",
+      "attacker": "252+ Atk Aerodactyl",
+      "move": "Stone Edge",
+      "defender": "252 HP / 128 Def / 128 SpD Sylveon",
+      "attackerInfo": {
+        "name": "Aerodactyl",
+        "spriteId": "aerodactyl",
+        "types": [
+          "Rock",
+          "Flying"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Sylveon",
+        "spriteId": "sylveon",
+        "types": [
+          "Fairy"
+        ]
+      },
+      "expectedMin": 47.5,
+      "expectedMax": 56.4,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-32",
+      "type": "damage",
+      "attacker": "252+ SpA Venusaur",
+      "move": "Energy Ball",
+      "defender": "252 HP / 128 Def / 128 SpD Corviknight",
+      "attackerInfo": {
+        "name": "Venusaur",
+        "spriteId": "venusaur",
+        "types": [
+          "Grass",
+          "Poison"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Corviknight",
+        "spriteId": "corviknight",
+        "types": [
+          "Flying",
+          "Steel"
+        ]
+      },
+      "expectedMin": 8.3,
+      "expectedMax": 10.2,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-33",
+      "type": "damage",
+      "attacker": "252+ SpA Milotic",
+      "move": "Hydro Pump",
+      "defender": "252 HP / 128 Def / 128 SpD Dragonite",
+      "attackerInfo": {
+        "name": "Milotic",
+        "spriteId": "milotic",
+        "types": [
+          "Water"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Dragonite",
+        "spriteId": "dragonite",
+        "types": [
+          "Dragon",
+          "Flying"
+        ]
+      },
+      "expectedMin": 17.7,
+      "expectedMax": 21.2,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-34",
+      "type": "damage",
+      "attacker": "252+ SpA Starmie",
+      "move": "Hydro Pump",
+      "defender": "252 HP / 128 Def / 128 SpD Archaludon",
+      "attackerInfo": {
+        "name": "Starmie",
+        "spriteId": "starmie",
+        "types": [
+          "Water",
+          "Psychic"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Archaludon",
+        "spriteId": "archaludon",
+        "types": [
+          "Steel",
+          "Dragon"
+        ]
+      },
+      "expectedMin": 25.9,
+      "expectedMax": 31,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-35",
+      "type": "damage",
+      "attacker": "252+ SpA Pelipper",
+      "move": "Hydro Pump",
+      "defender": "252 HP / 128 Def / 128 SpD Meganium",
+      "attackerInfo": {
+        "name": "Pelipper",
+        "spriteId": "pelipper",
+        "types": [
+          "Water",
+          "Flying"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Meganium",
+        "spriteId": "meganium",
+        "types": [
+          "Grass"
+        ]
+      },
+      "expectedMin": 19.8,
+      "expectedMax": 23.5,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-36",
+      "type": "damage",
+      "attacker": "252+ SpA Clefable",
+      "move": "Moonblast",
+      "defender": "252 HP / 128 Def / 128 SpD Torkoal",
+      "attackerInfo": {
+        "name": "Clefable",
+        "spriteId": "clefable",
+        "types": [
+          "Fairy"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Torkoal",
+        "spriteId": "torkoal",
+        "types": [
+          "Fire"
+        ]
+      },
+      "expectedMin": 23.2,
+      "expectedMax": 27.1,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-37",
+      "type": "damage",
+      "attacker": "252+ Atk Kangaskhan",
+      "move": "Double-Edge",
+      "defender": "252 HP / 128 Def / 128 SpD Incineroar",
+      "attackerInfo": {
+        "name": "Kangaskhan",
+        "spriteId": "kangaskhan",
+        "types": [
+          "Normal"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Incineroar",
+        "spriteId": "incineroar",
+        "types": [
+          "Fire",
+          "Dark"
+        ]
+      },
+      "expectedMin": 39.1,
+      "expectedMax": 46.5,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-38",
+      "type": "damage",
+      "attacker": "252+ SpA Politoed",
+      "move": "Hydro Pump",
+      "defender": "252 HP / 128 Def / 128 SpD Gyarados",
+      "attackerInfo": {
+        "name": "Politoed",
+        "spriteId": "politoed",
+        "types": [
+          "Water"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Gyarados",
+        "spriteId": "gyarados",
+        "types": [
+          "Water",
+          "Flying"
+        ]
+      },
+      "expectedMin": 16.3,
+      "expectedMax": 19.3,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-39",
+      "type": "damage",
+      "attacker": "252+ Atk Corviknight",
+      "move": "Brave Bird",
+      "defender": "252 HP / 128 Def / 128 SpD Mega Charizard Y",
+      "attackerInfo": {
+        "name": "Corviknight",
+        "spriteId": "corviknight",
+        "types": [
+          "Flying",
+          "Steel"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Mega Charizard Y",
+        "spriteId": "megacharizardy",
+        "types": [
+          "Fire",
+          "Flying"
+        ]
+      },
+      "expectedMin": 49.2,
+      "expectedMax": 58.4,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-40",
+      "type": "damage",
+      "attacker": "252+ Atk Torkoal",
+      "move": "Flare Blitz",
+      "defender": "252 HP / 128 Def / 128 SpD Primarina",
+      "attackerInfo": {
+        "name": "Torkoal",
+        "spriteId": "torkoal",
+        "types": [
+          "Fire"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Primarina",
+        "spriteId": "primarina",
+        "types": [
+          "Water",
+          "Fairy"
+        ]
+      },
+      "expectedMin": 24.6,
+      "expectedMax": 29.4,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-41",
+      "type": "damage",
+      "attacker": "252+ SpA Meganium",
+      "move": "Energy Ball",
+      "defender": "252 HP / 128 Def / 128 SpD Politoed",
+      "attackerInfo": {
+        "name": "Meganium",
+        "spriteId": "meganium",
+        "types": [
+          "Grass"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Politoed",
+        "spriteId": "politoed",
+        "types": [
+          "Water"
+        ]
+      },
+      "expectedMin": 51.8,
+      "expectedMax": 61.9,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-42",
+      "type": "damage",
+      "attacker": "252+ Atk Talonflame",
+      "move": "Flare Blitz",
+      "defender": "252 HP / 128 Def / 128 SpD Kangaskhan",
+      "attackerInfo": {
+        "name": "Talonflame",
+        "spriteId": "talonflame",
+        "types": [
+          "Fire",
+          "Flying"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Kangaskhan",
+        "spriteId": "kangaskhan",
+        "types": [
+          "Normal"
+        ]
+      },
+      "expectedMin": 36.8,
+      "expectedMax": 43.9,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-43",
+      "type": "damage",
+      "attacker": "252+ SpA Ninetales-Alola",
+      "move": "Ice Beam",
+      "defender": "252 HP / 128 Def / 128 SpD Rotom-Wash",
+      "attackerInfo": {
+        "name": "Ninetales-Alola",
+        "spriteId": "ninetalesalola",
+        "types": [
+          "Ice",
+          "Fairy"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Rotom-Wash",
+        "spriteId": "rotomwash",
+        "types": [
+          "Electric",
+          "Water"
+        ]
+      },
+      "expectedMin": 16.6,
+      "expectedMax": 19.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-45",
+      "type": "damage",
+      "attacker": "252+ SpA Whimsicott",
+      "move": "Energy Ball",
+      "defender": "252 HP / 128 Def / 128 SpD Venusaur",
+      "attackerInfo": {
+        "name": "Whimsicott",
+        "spriteId": "whimsicott",
+        "types": [
+          "Grass",
+          "Fairy"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Venusaur",
+        "spriteId": "venusaur",
+        "types": [
+          "Grass",
+          "Poison"
+        ]
+      },
+      "expectedMin": 6.4,
+      "expectedMax": 7.5,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-46",
+      "type": "damage",
+      "attacker": "252+ SpA Floette",
+      "move": "Moonblast",
+      "defender": "252 HP / 128 Def / 128 SpD Basculegion",
+      "attackerInfo": {
+        "name": "Floette",
+        "spriteId": "floette",
+        "types": [
+          "Fairy"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Basculegion",
+        "spriteId": "basculegion",
+        "types": [
+          "Water",
+          "Ghost"
+        ]
+      },
+      "expectedMin": 26.9,
+      "expectedMax": 32.2,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-47",
+      "type": "damage",
+      "attacker": "252+ Atk Maushold",
+      "move": "Double-Edge",
+      "defender": "252 HP / 128 Def / 128 SpD Farigiraf",
+      "attackerInfo": {
+        "name": "Maushold",
+        "spriteId": "maushold",
+        "types": [
+          "Normal"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Farigiraf",
+        "spriteId": "farigiraf",
+        "types": [
+          "Normal",
+          "Psychic"
+        ]
+      },
+      "expectedMin": 36.1,
+      "expectedMax": 42.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-48",
+      "type": "damage",
+      "attacker": "252+ Atk Palafin",
+      "move": "Liquidation",
+      "defender": "252 HP / 128 Def / 128 SpD Aegislash (Shield Forme)",
+      "attackerInfo": {
+        "name": "Palafin",
+        "spriteId": "palafin",
+        "types": [
+          "Water"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Aegislash (Shield Forme)",
+        "spriteId": "aegislashshield",
+        "types": [
+          "Steel",
+          "Ghost"
+        ]
+      },
+      "expectedMin": 19.8,
+      "expectedMax": 24,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "d-regma-49",
+      "type": "damage",
+      "attacker": "252+ Atk Aegislash (Shield Forme)",
+      "move": "Iron Head",
+      "defender": "252 HP / 128 Def / 128 SpD Tyranitar",
+      "attackerInfo": {
+        "name": "Aegislash (Shield Forme)",
+        "spriteId": "aegislashshield",
+        "types": [
+          "Steel",
+          "Ghost"
+        ]
+      },
+      "defenderInfo": {
+        "name": "Tyranitar",
+        "spriteId": "tyranitar",
+        "types": [
+          "Rock",
+          "Dark"
+        ]
+      },
+      "expectedMin": 31.9,
+      "expectedMax": 37.7,
+      "formatNote": "Regulation M-A legal pool, Level 50 Doubles baseline setup"
+    },
+    {
+      "id": "s-regma-1",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Dragapult",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 142
+      },
+      "pokemonB": {
+        "name": "Aerodactyl",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 130
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-2",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Talonflame",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 126
+      },
+      "pokemonB": {
+        "name": "Sneasler",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 120
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-3",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Whimsicott",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 116
+      },
+      "pokemonB": {
+        "name": "Starmie",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 115
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-4",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Maushold",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 111
+      },
+      "pokemonB": {
+        "name": "Gengar",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 110
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-5",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Froslass",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 110
+      },
+      "pokemonB": {
+        "name": "Ninetales-Alola",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 109
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-6",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Delphox",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 104
+      },
+      "pokemonB": {
+        "name": "Garchomp",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 102
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-7",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Mega Charizard Y",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 100
+      },
+      "pokemonB": {
+        "name": "Palafin",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 100
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-8",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Volcarona",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 100
+      },
+      "pokemonB": {
+        "name": "Typhlosion-Hisui",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 95
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-9",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Kangaskhan",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 90
+      },
+      "pokemonB": {
+        "name": "Arcanine-Hisui",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 90
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-10",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Excadrill",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 88
+      },
+      "pokemonB": {
+        "name": "Rotom-Wash",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 86
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-11",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Glimmora",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 86
+      },
+      "pokemonB": {
+        "name": "Rotom-Heat",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 86
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-12",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Archaludon",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 85
+      },
+      "pokemonB": {
+        "name": "Kommo-O",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 85
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-13",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Milotic",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 81
+      },
+      "pokemonB": {
+        "name": "Gyarados",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 81
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-14",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Dragonite",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 80
+      },
+      "pokemonB": {
+        "name": "Venusaur",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 80
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-15",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Gardevoir",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 80
+      },
+      "pokemonB": {
+        "name": "Meganium",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 80
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-16",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Basculegion",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 78
+      },
+      "pokemonB": {
+        "name": "Sinistcha",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 70
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-17",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Politoed",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 70
+      },
+      "pokemonB": {
+        "name": "Corviknight",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 67
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-18",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Pelipper",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 65
+      },
+      "pokemonB": {
+        "name": "Scizor",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 65
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-19",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Tyranitar",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 61
+      },
+      "pokemonB": {
+        "name": "Incineroar",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 60
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-20",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Farigiraf",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 60
+      },
+      "pokemonB": {
+        "name": "Aegislash (Blade Forme)",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 60
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-21",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Aegislash (Shield Forme)",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 60
+      },
+      "pokemonB": {
+        "name": "Primarina",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 60
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-22",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Clefable",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 60
+      },
+      "pokemonB": {
+        "name": "Sylveon",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 60
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-23",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Golurk",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 55
+      },
+      "pokemonB": {
+        "name": "Floette",
+        "nature": "Timid, 252 Spe",
+        "baseSpeed": 52
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    },
+    {
+      "id": "s-regma-24",
+      "type": "speed",
+      "pokemonA": {
+        "name": "Kingambit",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 50
+      },
+      "pokemonB": {
+        "name": "Aggron",
+        "nature": "Jolly, 252 Spe",
+        "baseSpeed": 50
+      },
+      "context": "Regulation M-A legal pool, Level 50, no Tailwind or speed boosts"
+    }
+  ],
+  "metadata": {
+    "source": "Pikalytics Champions Tournaments",
+    "sourceUrl": "https://www.pikalytics.com/pokedex/championstournaments/",
+    "sourceTableUrl": "https://www.pikalytics.com/ai/pokedex/championstournaments",
+    "usageThresholdPercent": 2,
+    "sourceEntriesAboveThreshold": 48,
+    "legalSpeciesResolved": 49,
+    "unresolvedEntries": [],
+    "unresolvedCount": 0,
+    "customStatEntries": []
+  }
+}

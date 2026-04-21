@@ -1,0 +1,16 @@
+const POKEAPI_DEX_MAP: Record<string, number> = {
+  aggron: 306, alakazam: 65, avalugg: 713, bastiodon: 411, conkeldurr: 534, dragonite: 149,
+  excadrill: 530, garganacl: 934, kingambit: 983, kleavor: 900, megaabsol: 359,
+  megaaerodactyl: 142, megaaggron: 306, megaalakazam: 65, megaampharos: 181,
+  megaaudino: 531, megabanette: 354, megabeedrill: 15, megablastoise: 9, megacamerupt: 323,
+  megachandelure: 609, megacharizardy: 6, megachesnaught: 652, megachimecho: 358,
+  megaclefable: 36, megacrabominable: 740, megadragonite: 149, megadrampa: 780,
+  megaemboar: 500, megaexcadrill: 530, megaferaligatr: 160, megafloette: 670,
+  megafroslass: 478, megagallade: 475, megagarchomp: 445, megagardevoir: 282,
+  megagengar: 94, megaglimmora: 970, megagolurk: 623, megagyarados: 130, megahawlucha: 701,
+  megaheracross: 214, megahoundoom: 229, megalucario: 448, megamanectric: 310,
+  megameganium: 154, megapidgeot: 18, megapinsir: 127, megascizor: 212,
+  megascovillain: 952, megasharpedo: 319, megaslowbro: 80, megastarmie: 121,
+  megatyranitar: 248, megavenusaur: 3, megavictreebel: 71, rampardos: 409, rhyperior: 464,
+  tyranitar: 248, umbreon: 197, volcarona: 637,
+}

@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  line-height: 1.45;
+  color: #1f2d3d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(224, 111, 45, 0.17), transparent 42%),
+    radial-gradient(circle at 85% 80%, rgba(17, 58, 102, 0.16), transparent 48%),
+    #fffaf4;
+}
+
+#root {
+  min-height: 100vh;
+}
