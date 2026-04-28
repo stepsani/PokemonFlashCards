@@ -22,6 +22,36 @@ function fetchPokemon(nameOrId) {
           data += chunk
         })
         res.on('end', () => {
+          if (res.statusCode !== 200) {
+            resolve(null)
+            return
+          }
+          try {
+            const json = JSON.parse(data)
+            resolve(json.id)
+          } catch (e) {
+            resolve(null)
+          }
+        })
+      })
+      .on('error', () => resolve(null))
+  })
+}
+
+function fetchPokemonSpecies(nameOrId) {
+  return new Promise((resolve) => {
+    const url = `https://pokeapi.co/api/v2/pokemon-species/${nameOrId.toLowerCase()}`
+    https
+      .get(url, (res) => {
+        let data = ''
+        res.on('data', (chunk) => {
+          data += chunk
+        })
+        res.on('end', () => {
+          if (res.statusCode !== 200) {
+            resolve(null)
+            return
+          }
           try {
             const json = JSON.parse(data)
             resolve(json.id)
@@ -57,7 +87,11 @@ async function generateDexMap() {
   for (const id of sorted) {
     // Normalize: strip mega/primal prefix for API lookup
     let lookupId = id.toLowerCase()
-    if (lookupId.startsWith('mega')) lookupId = lookupId.slice(4)
+    // Pokémon that start with "mega" but aren't mega forms
+    const megaPokemon = ['meganium', 'megapod'];
+    if (lookupId.startsWith('mega') && !megaPokemon.includes(lookupId)) {
+      lookupId = lookupId.slice(4)
+    }
     if (lookupId.startsWith('primal')) lookupId = lookupId.slice(6)
     if (lookupId.endsWith('x') || lookupId.endsWith('y')) lookupId = lookupId.slice(0, -1)
     if (lookupId.endsWith('blade') || lookupId.endsWith('shield')) {
@@ -75,7 +109,33 @@ async function generateDexMap() {
       }
     }
 
-    const dexNum = await fetchPokemon(lookupId)
+    let dexNum = await fetchPokemon(lookupId)
+    
+    // Fallback: try hyphenated variants for Pokémon with hyphens in their names
+    if (!dexNum) {
+      // Specific known hyphenations
+      const hyphenPatterns = {
+        'kommoo': 'kommo-o',
+        'tapukoko': 'tapu-koko',
+        'tapulele': 'tapu-lele',
+        'tapubulu': 'tapu-bulu',
+        'tapufini': 'tapu-fini',
+        'jangmoo': 'jangmo-o',
+        'hakamoo': 'hakamo-o',
+      }
+      
+      if (hyphenPatterns[lookupId]) {
+        const newLookupId = hyphenPatterns[lookupId]
+        dexNum = await fetchPokemon(newLookupId)
+        if (dexNum) lookupId = newLookupId
+      }
+    }
+
+    // Fallback to species endpoint for form-only entries (e.g., maushold)
+    if (!dexNum) {
+      dexNum = await fetchPokemonSpecies(lookupId)
+    }
+    
     if (dexNum) {
       dexMap[id] = dexNum
       console.log(`✓ ${id.padEnd(20)} → #${dexNum}`)
@@ -89,7 +149,7 @@ async function generateDexMap() {
 
   // Generate TypeScript code
   const entries = Object.entries(dexMap).sort((a, b) => a[0].localeCompare(b[0]))
-  let code = 'const POKEAPI_DEX_MAP: Record<string, number> = {\n'
+  let code = 'export const POKEAPI_DEX_MAP: Record<string, number> = {\n'
 
   let line = ''
   for (const [id, dex] of entries) {
