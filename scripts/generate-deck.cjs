@@ -341,6 +341,33 @@ function parseCommonMovesFromAiMarkdown(markdown) {
   return moves
 }
 
+function parseTopCommonItemFromAiMarkdown(markdown) {
+  const sectionMatch = markdown.match(/## Common Items\n([\s\S]*?)(?:\n## |$)/)
+  if (!sectionMatch) {
+    return null
+  }
+
+  const block = sectionMatch[1]
+  const itemRegex = /^- \*\*([^*]+)\*\*: ([0-9.]+)%/gm
+  let topItem = null
+  let topPct = -1
+  let match
+
+  while ((match = itemRegex.exec(block)) !== null) {
+    const name = decodeHtml(match[1]).trim()
+    const pct = Number.parseFloat(match[2])
+    if (!name || name.toLowerCase() === 'other' || Number.isNaN(pct)) {
+      continue
+    }
+    if (pct > topPct) {
+      topPct = pct
+      topItem = name
+    }
+  }
+
+  return topItem
+}
+
 function parseChampionsSetFromAiMarkdown(markdown) {
   const setBlockMatch = markdown.match(/\*\*[^\n]+ Set\*\*:\n([\s\S]*?)(?:\n\n|\n###|\n##|$)/)
   if (!setBlockMatch) {
@@ -349,6 +376,7 @@ function parseChampionsSetFromAiMarkdown(markdown) {
 
   const block = setBlockMatch[1]
   const abilityMatch = block.match(/- \*\*Ability\*\*:\s*([^\n]+)/i)
+  const itemMatch = block.match(/- \*\*Item\*\*:\s*([^\n]+)/i)
   const natureMatch = block.match(/- \*\*Nature\*\*:\s*([^\n]+)/i)
   const evsMatch = block.match(/- \*\*EVs\*\*:\s*([^\n]+)/i)
   if (!natureMatch || !evsMatch) {
@@ -373,8 +401,91 @@ function parseChampionsSetFromAiMarkdown(markdown) {
 
   return {
     ability: abilityMatch ? decodeHtml(abilityMatch[1]).trim() : null,
+    item: itemMatch ? decodeHtml(itemMatch[1]).trim() : null,
     nature: normalizeNatureName(natureMatch[1]),
     evs32,
+  }
+}
+
+function toMegaDisplayName(showdownSpeciesName) {
+  if (typeof showdownSpeciesName !== 'string' || showdownSpeciesName.trim() === '') {
+    return null
+  }
+
+  const baseMatch = showdownSpeciesName.match(/^(.+)-Mega(?:-([XY]))?$/)
+  if (!baseMatch) {
+    return null
+  }
+
+  const base = baseMatch[1]
+  const formeLetter = baseMatch[2]
+  return formeLetter ? `Mega ${base} ${formeLetter}` : `Mega ${base}`
+}
+
+const MEGA_DISPLAY_NAME_BY_STONE_ITEM_ID = (() => {
+  const map = new Map()
+  for (const species of showdownDex.species.all()) {
+    if (!species || !species.exists || !species.isMega || !species.requiredItem) {
+      continue
+    }
+
+    const displayName = toMegaDisplayName(species.name)
+    if (!displayName) {
+      continue
+    }
+
+    map.set(toID(species.requiredItem), displayName)
+  }
+  return map
+})()
+
+function resolveMegaSpeciesByItem(rawName, profile) {
+  const itemName =
+    (profile && profile.championsSet && profile.championsSet.item) ||
+    (profile && profile.topCommonItem) ||
+    null
+  if (!itemName) {
+    return rawName
+  }
+
+  if (typeof rawName !== 'string' || /^mega\s+/i.test(rawName)) {
+    return rawName
+  }
+
+  const itemId = toID(itemName)
+  if (!itemId) {
+    return rawName
+  }
+
+  const megaName = MEGA_DISPLAY_NAME_BY_STONE_ITEM_ID.get(itemId)
+  return megaName ?? rawName
+}
+
+function applyMegaStoneTransforms(rawNames, setMap) {
+  const transformed = []
+  const transformedSetMap = new Map(setMap)
+  const transformations = []
+
+  for (const rawName of rawNames) {
+    const profile = setMap.get(rawName)
+    const remappedName = resolveMegaSpeciesByItem(rawName, profile)
+
+    transformed.push(remappedName)
+
+    if (profile && remappedName !== rawName) {
+      transformedSetMap.set(remappedName, profile)
+      transformations.push({
+        from: rawName,
+        to: remappedName,
+        item: (profile.championsSet && profile.championsSet.item) || profile.topCommonItem,
+      })
+    }
+  }
+
+  return {
+    rawNames: transformed,
+    setMap: transformedSetMap,
+    transformations,
   }
 }
 
@@ -412,11 +523,13 @@ async function buildPikalyticsSetMap(rawNames) {
     }
 
     const moveRows = parseCommonMovesFromAiMarkdown(aiMarkdown)
+    const topCommonItem = parseTopCommonItemFromAiMarkdown(aiMarkdown)
     const championsSet = parseChampionsSetFromAiMarkdown(aiMarkdown)
 
     return {
       rawName,
       moves: moveRows,
+      topCommonItem,
       championsSet,
     }
   })
@@ -1160,8 +1273,11 @@ function buildSpeedCards(legalEntries, setMap) {
 
 async function main() {
   const usageMarkdown = await fetchText(PIKALYTICS_AI_USAGE_URL)
-  const rawNames = extractUsageSpeciesFromMarkdown(usageMarkdown, USAGE_THRESHOLD_PERCENT)
-  const pikalyticsSetMap = await buildPikalyticsSetMap(rawNames)
+  const rawNamesFromUsage = extractUsageSpeciesFromMarkdown(usageMarkdown, USAGE_THRESHOLD_PERCENT)
+  const pikalyticsSetMapByUsageName = await buildPikalyticsSetMap(rawNamesFromUsage)
+  const megaAdjusted = applyMegaStoneTransforms(rawNamesFromUsage, pikalyticsSetMapByUsageName)
+  const rawNames = megaAdjusted.rawNames
+  const pikalyticsSetMap = megaAdjusted.setMap
   const internalDamageSetMap = loadInternalDamageSetMap()
   const { resolved: legalEntries, unresolved, proxies } = resolveLegalSpecies(rawNames)
 
@@ -1190,7 +1306,9 @@ async function main() {
       sourceUrl: PIKALYTICS_USAGE_URL,
       sourceTableUrl: PIKALYTICS_AI_USAGE_URL,
       usageThresholdPercent: USAGE_THRESHOLD_PERCENT,
-      sourceEntriesAboveThreshold: rawNames.length,
+      sourceEntriesAboveThreshold: rawNamesFromUsage.length,
+      megaStoneTransforms: megaAdjusted.transformations,
+      megaStoneTransformCount: megaAdjusted.transformations.length,
       legalSpeciesResolved: legalEntries.length,
       unresolvedEntries: unresolved.slice(0, 50),
       unresolvedCount: unresolved.length,
@@ -1202,7 +1320,8 @@ async function main() {
   const outPath = path.resolve(__dirname, '../public/champions-deck.json')
   fs.writeFileSync(outPath, JSON.stringify(bundle, null, 2))
 
-  console.log(`Pikalytics (AI table) species entries above ${USAGE_THRESHOLD_PERCENT}%: ${rawNames.length}`)
+  console.log(`Pikalytics (AI table) species entries above ${USAGE_THRESHOLD_PERCENT}%: ${rawNamesFromUsage.length}`)
+  console.log(`Mega-stone remaps applied: ${megaAdjusted.transformations.length}`)
   console.log(`Resolved legal species from usage pool: ${legalEntries.length}`)
   console.log(`Unresolved entries: ${unresolved.length}`)
   console.log(`Proxy entries: ${proxies.length}`)
