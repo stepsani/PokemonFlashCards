@@ -43,6 +43,29 @@ function extractDefenderName(defenderLabel: string): string {
     .trim()
 }
 
+function getFormatNoteValue(formatNote: string, label: string): string | null {
+  const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const match = formatNote.match(new RegExp(`(?:^|,\\s*)${escapedLabel}:\\s*([^,]+)`))
+  return match?.[1]?.trim() ?? null
+}
+
+function toWeatherClassName(weather: string): string {
+  const normalized = toId(weather)
+  if (normalized.includes('sun')) {
+    return 'sun'
+  }
+  if (normalized.includes('rain')) {
+    return 'rain'
+  }
+  if (normalized.includes('sand')) {
+    return 'sand'
+  }
+  if (normalized.includes('snow') || normalized.includes('hail')) {
+    return 'snow'
+  }
+  return 'neutral'
+}
+
 function toSpriteId(name: string): string {
   let id = toId(name)
   id = id.replace(/bladeforme/g, 'blade')
@@ -210,11 +233,13 @@ function DamagePokemonRow({
   leftLabel,
   spriteId,
   types,
+  ability,
 }: {
   name: string
   leftLabel: string
   spriteId?: string
   types: string[]
+  ability?: string | null
 }) {
   return (
     <div className="damage-mon-row">
@@ -240,6 +265,7 @@ function DamagePokemonRow({
             />
           ))}
         </div>
+        {ability && <span className="ability-chip">Ability: {ability}</span>}
       </div>
     </div>
   )
@@ -592,80 +618,94 @@ function App() {
           <div className="tcg-flip-card">
             <article className="tcg-face tcg-front">
               {activeCard.type === 'damage' ? (
-                <>
-                  <div className="tcg-artwork">
-                    {(() => {
-                      const attackerName =
-                        activeCard.attackerInfo?.name ??
-                        extractAttackerName(activeCard.attacker)
-                      const defenderName =
-                        activeCard.defenderInfo?.name ??
-                        extractDefenderName(activeCard.defender)
-                      const moveType = TYPE_BY_MOVE[activeCard.move]
-                      const attackerTypes =
-                        activeCard.attackerInfo?.types ?? (moveType ? [moveType] : [])
-                      const defenderTypes = activeCard.defenderInfo?.types ?? []
+                (() => {
+                  const attackerName =
+                    activeCard.attackerInfo?.name ??
+                    extractAttackerName(activeCard.attacker)
+                  const defenderName =
+                    activeCard.defenderInfo?.name ??
+                    extractDefenderName(activeCard.defender)
+                  const moveType = TYPE_BY_MOVE[activeCard.move]
+                  const attackerTypes =
+                    activeCard.attackerInfo?.types ?? (moveType ? [moveType] : [])
+                  const defenderTypes = activeCard.defenderInfo?.types ?? []
+                  const formatNote = activeCard.formatNote ?? ''
+                  const attackerAbility = getFormatNoteValue(
+                    formatNote,
+                    'Atk Ability',
+                  )
+                  const defenderAbility = getFormatNoteValue(
+                    formatNote,
+                    'Def Ability',
+                  )
+                  const weather = getFormatNoteValue(formatNote, 'Weather')
 
-                      return (
-                        <>
-                          <DamagePokemonRow
-                            key={`atk-${activeCard.id}-${attackerName}-${activeCard.attackerInfo?.spriteId ?? ''}`}
-                            name={attackerName}
-                            leftLabel={activeCard.attacker.replace(attackerName, '').trim()}
-                            spriteId={activeCard.attackerInfo?.spriteId}
-                            types={attackerTypes}
-                          />
-                          <DamagePokemonRow
-                            key={`def-${activeCard.id}-${defenderName}-${activeCard.defenderInfo?.spriteId ?? ''}`}
-                            name={defenderName}
-                            leftLabel={activeCard.defender.replace(defenderName, '').trim()}
-                            spriteId={activeCard.defenderInfo?.spriteId}
-                            types={defenderTypes}
-                          />
-                        </>
-                      )
-                    })()}
-                  </div>
-                  <div className="tcg-effect-box">
-                    <h3>
-                      What percent damage does{' '}
-                      <span className="move-inline">
-                        <strong>{activeCard.move}</strong>
-                        {TYPE_BY_MOVE[activeCard.move] && (
-                          <img
-                            className="type-icon"
-                            src={TYPE_ICON_BY_TYPE[TYPE_BY_MOVE[activeCard.move]]}
-                            alt={`${TYPE_BY_MOVE[activeCard.move]} type`}
-                            loading="lazy"
-                          />
-                        )}
-                      </span>{' '}
-                      from{' '}
-                      <strong>
-                        {activeCard.attackerInfo?.name ??
-                          extractAttackerName(activeCard.attacker)}
-                      </strong>{' '}
-                      do to{' '}
-                      <strong>
-                        {activeCard.defenderInfo?.name ??
-                          extractDefenderName(activeCard.defender)}
-                      </strong>
-                      ?
-                    </h3>
-                    <p className="meta">{activeCard.formatNote}</p>
+                  return (
+                    <>
+                      <div className="tcg-artwork">
+                        <DamagePokemonRow
+                          key={`atk-${activeCard.id}-${attackerName}-${activeCard.attackerInfo?.spriteId ?? ''}`}
+                          name={attackerName}
+                          leftLabel={activeCard.attacker.replace(attackerName, '').trim()}
+                          spriteId={activeCard.attackerInfo?.spriteId}
+                          types={attackerTypes}
+                          ability={attackerAbility}
+                        />
+                        <DamagePokemonRow
+                          key={`def-${activeCard.id}-${defenderName}-${activeCard.defenderInfo?.spriteId ?? ''}`}
+                          name={defenderName}
+                          leftLabel={activeCard.defender.replace(defenderName, '').trim()}
+                          spriteId={activeCard.defenderInfo?.spriteId}
+                          types={defenderTypes}
+                          ability={defenderAbility}
+                        />
+                      </div>
+                      <div className="tcg-effect-box">
+                        <h3>
+                          What percent damage does{' '}
+                          <span className="move-inline">
+                            <strong>{activeCard.move}</strong>
+                            {TYPE_BY_MOVE[activeCard.move] && (
+                              <img
+                                className="type-icon"
+                                src={TYPE_ICON_BY_TYPE[TYPE_BY_MOVE[activeCard.move]]}
+                                alt={`${TYPE_BY_MOVE[activeCard.move]} type`}
+                                loading="lazy"
+                              />
+                            )}
+                          </span>{' '}
+                          from <strong>{attackerName}</strong> do to{' '}
+                          <strong>{defenderName}</strong>
+                          {weather && (
+                            <>
+                              {' '}
+                              in{' '}
+                              <span
+                                className={`weather-chip weather-${toWeatherClassName(weather)}`}
+                              >
+                                {weather}
+                              </span>{' '}
+                              weather
+                            </>
+                          )}
+                          ?
+                        </h3>
+                        {formatNote && <p className="meta">{formatNote}</p>}
 
-                    <label htmlFor="damage-answer">Your estimate (%)</label>
-                    <input
-                      id="damage-answer"
-                      type="number"
-                      inputMode="decimal"
-                      value={damageAnswer}
-                      onChange={(event) => setDamageAnswer(event.target.value)}
-                      placeholder="e.g. 72.5"
-                      disabled={answered}
-                    />
-                  </div>
-                </>
+                        <label htmlFor="damage-answer">Your estimate (%)</label>
+                        <input
+                          id="damage-answer"
+                          type="number"
+                          inputMode="decimal"
+                          value={damageAnswer}
+                          onChange={(event) => setDamageAnswer(event.target.value)}
+                          placeholder="e.g. 72.5"
+                          disabled={answered}
+                        />
+                      </div>
+                    </>
+                  )
+                })()
               ) : (
                 <>
                   <h3>Who has the higher base Speed?</h3>

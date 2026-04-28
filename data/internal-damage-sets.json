@@ -1,0 +1,869 @@
+{
+  "Aegislash": {
+    "nature": "Brave",
+    "evs32": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Poltergeist",
+      "Shadow Sneak",
+      "Iron Head",
+      "Sacred Sword"
+    ]
+  },
+  "Aerodactyl": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Rock Slide",
+      "Dual Wingbeat",
+      "Tailwind",
+      "Taunt"
+    ]
+  },
+  "Arcanine-Hisui": {
+    "nature": "Adamant",
+    "evs32": {
+      "hp": 1,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 1,
+      "spe": 32
+    },
+    "moves": [
+      "Flare Blitz",
+      "Rock Slide",
+      "Extreme Speed",
+      "Head Smash"
+    ]
+  },
+  "Archaludon": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Electro Shot",
+      "Flash Cannon",
+      "Draco Meteor",
+      "Dragon Pulse"
+    ]
+  },
+  "Basculegion": {
+    "nature": "Adamant",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Last Respects",
+      "Wave Crash",
+      "Flip Turn",
+      "Aqua Jet"
+    ]
+  },
+  "Blastoise": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Water Spout",
+      "Aura Sphere",
+      "Dark Pulse",
+      "Ice Beam"
+    ]
+  },
+  "Charizard": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Heat Wave",
+      "Weather Ball",
+      "Solar Beam",
+      "Protect"
+    ]
+  },
+  "Clefable": {
+    "nature": "Bold",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Moonblast",
+      "Icy Wind",
+      "Follow Me",
+      "Helping Hand"
+    ]
+  },
+  "Corviknight": {
+    "nature": "Impish",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Brave Bird",
+      "Body Press",
+      "Roost",
+      "Tailwind"
+    ]
+  },
+  "Delphox": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 1,
+      "atk": 0,
+      "def": 1,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Heat Wave",
+      "Psychic",
+      "Psyshock",
+      "Dazzling Gleam"
+    ]
+  },
+  "Dragapult": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Dragon Darts",
+      "Phantom Force",
+      "Psychic Fangs",
+      "Will-O-Wisp"
+    ]
+  },
+  "Dragonite": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Draco Meteor",
+      "Hurricane",
+      "Extreme Speed",
+      "Thunder"
+    ]
+  },
+  "Excadrill": {
+    "nature": "Adamant",
+    "evs32": {
+      "hp": 0,
+      "atk": 32,
+      "def": 2,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "High Horsepower",
+      "Iron Head",
+      "Rock Slide",
+      "Earthquake"
+    ]
+  },
+  "Farigiraf": {
+    "nature": "Quiet",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+    },
+    "moves": [
+      "Psychic",
+      "Hyper Voice",
+      "Dazzling Gleam",
+      "Trick Room"
+    ]
+  },
+  "Floette-Eternal": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Moonblast",
+      "Dazzling Gleam",
+      "Light of Ruin",
+      "Protect"
+    ]
+  },
+  "Froslass": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Blizzard",
+      "Shadow Ball",
+      "Thunderbolt",
+      "Aurora Veil"
+    ]
+  },
+  "Garchomp": {
+    "nature": "Adamant",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Earthquake",
+      "Dragon Claw",
+      "Rock Slide",
+      "Stomping Tantrum"
+    ]
+  },
+  "Gardevoir": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+    },
+    "moves": [
+      "Hyper Voice",
+      "Psyshock",
+      "Psychic",
+      "Trick Room"
+    ]
+  },
+  "Gengar": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Shadow Ball",
+      "Sludge Bomb",
+      "Icy Wind",
+      "Protect"
+    ]
+  },
+  "Glimmora": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 1,
+      "spe": 32
+    },
+    "moves": [
+      "Power Gem",
+      "Sludge Bomb",
+      "Sludge Wave",
+      "Earth Power"
+    ]
+  },
+  "Golurk": {
+    "nature": "Brave",
+    "evs32": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Headlong Rush",
+      "Poltergeist",
+      "Ice Punch",
+      "Drain Punch"
+    ]
+  },
+  "Gyarados": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Waterfall",
+      "Crunch",
+      "Earthquake",
+      "Dragon Dance"
+    ]
+  },
+  "Hydreigon": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Dark Pulse",
+      "Draco Meteor",
+      "Earth Power",
+      "Flamethrower"
+    ]
+  },
+  "Incineroar": {
+    "nature": "Careful",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+    },
+    "moves": [
+      "Flare Blitz",
+      "Darkest Lariat",
+      "Fake Out",
+      "Parting Shot"
+    ]
+  },
+  "Kangaskhan": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Fake Out",
+      "Double-Edge",
+      "Sucker Punch",
+      "Drain Punch"
+    ]
+  },
+  "Kingambit": {
+    "nature": "Adamant",
+    "evs32": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Kowtow Cleave",
+      "Iron Head",
+      "Sucker Punch",
+      "Low Kick"
+    ]
+  },
+  "Kommo-o": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Clanging Scales",
+      "Aura Sphere",
+      "Vacuum Wave",
+      "Clangorous Soul"
+    ]
+  },
+  "Maushold": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Super Fang",
+      "Feint",
+      "Follow Me",
+      "Taunt"
+    ]
+  },
+  "Maushold-Four": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Super Fang",
+      "Feint",
+      "Follow Me",
+      "Taunt"
+    ]
+  },
+  "Meganium": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+    },
+    "moves": [
+      "Solar Beam",
+      "Dazzling Gleam",
+      "Weather Ball",
+      "Earth Power"
+    ]
+  },
+  "Milotic": {
+    "nature": "Bold",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Scald",
+      "Icy Wind",
+      "Ice Beam",
+      "Recover"
+    ]
+  },
+  "Ninetales-Alola": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 1,
+      "atk": 0,
+      "def": 1,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Blizzard",
+      "Freeze-Dry",
+      "Icy Wind",
+      "Moonblast"
+    ]
+  },
+  "Palafin": {
+    "nature": "Adamant",
+    "evs32": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+    },
+    "moves": [
+      "Wave Crash",
+      "Jet Punch",
+      "Flip Turn",
+      "Close Combat"
+    ]
+  },
+  "Pelipper": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Weather Ball",
+      "Hurricane",
+      "Muddy Water",
+      "Tailwind"
+    ]
+  },
+  "Politoed": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Weather Ball",
+      "Icy Wind",
+      "Muddy Water",
+      "Ice Beam"
+    ]
+  },
+  "Primarina": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+    },
+    "moves": [
+      "Hyper Voice",
+      "Moonblast",
+      "Dazzling Gleam",
+      "Ice Beam"
+    ]
+  },
+  "Rotom-Heat": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Overheat",
+      "Electroweb",
+      "Volt Switch",
+      "Trick"
+    ]
+  },
+  "Rotom-Wash": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+    },
+    "moves": [
+      "Hydro Pump",
+      "Thunderbolt",
+      "Volt Switch",
+      "Will-O-Wisp"
+    ]
+  },
+  "Sableye": {
+    "nature": "Careful",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 0,
+      "spd": 32,
+      "spe": 0
+    },
+    "moves": [
+      "Foul Play",
+      "Fake Out",
+      "Encore",
+      "Will-O-Wisp"
+    ]
+  },
+  "Scizor": {
+    "nature": "Adamant",
+    "evs32": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Bullet Punch",
+      "Bug Bite",
+      "Close Combat",
+      "Swords Dance"
+    ]
+  },
+  "Sinistcha": {
+    "nature": "Bold",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+    },
+    "moves": [
+      "Matcha Gotcha",
+      "Shadow Ball",
+      "Rage Powder",
+      "Trick Room"
+    ]
+  },
+  "Sneasler": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Fake Out",
+      "Rock Slide"
+    ]
+  },
+  "Starmie": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Liquidation",
+      "Zen Headbutt",
+      "Ice Spinner",
+      "Aqua Jet"
+    ]
+  },
+  "Sylveon": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+    },
+    "moves": [
+      "Hyper Voice",
+      "Hyper Beam",
+      "Quick Attack",
+      "Mystical Fire"
+    ]
+  },
+  "Talonflame": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Flare Blitz",
+      "Brave Bird",
+      "Dual Wingbeat",
+      "Tailwind"
+    ]
+  },
+  "Torkoal": {
+    "nature": "Quiet",
+    "evs32": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+    },
+    "moves": [
+      "Eruption",
+      "Heat Wave",
+      "Weather Ball",
+      "Earth Power"
+    ]
+  },
+  "Typhlosion-Hisui": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 1,
+      "atk": 0,
+      "def": 1,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Eruption",
+      "Shadow Ball",
+      "Heat Wave",
+      "Overheat"
+    ]
+  },
+  "Tyranitar": {
+    "nature": "Jolly",
+    "evs32": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Rock Slide",
+      "Knock Off",
+      "Ice Punch",
+      "Low Kick"
+    ]
+  },
+  "Venusaur": {
+    "nature": "Modest",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Leaf Storm",
+      "Sludge Bomb",
+      "Earth Power",
+      "Sleep Powder"
+    ]
+  },
+  "Whimsicott": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Moonblast",
+      "Tailwind",
+      "Encore",
+      "Protect"
+    ]
+  },
+  "Zoroark-Hisui": {
+    "nature": "Timid",
+    "evs32": {
+      "hp": 1,
+      "atk": 0,
+      "def": 1,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+    },
+    "moves": [
+      "Hyper Voice",
+      "Bitter Malice",
+      "Icy Wind",
+      "Psychic"
+    ]
+  }
+}

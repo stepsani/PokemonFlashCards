@@ -23,6 +23,7 @@ const PIKALYTICS_CHAMPIONS_SPECIES_AI_URL_BASE =
 const USAGE_THRESHOLD_PERCENT = 2
 const CHAMPIONS_EV_MAX = 32
 const CHAMPIONS_TO_CALC_SCALE = 8
+const INTERNAL_DAMAGE_SETS_PATH = path.resolve(__dirname, '../data/internal-damage-sets.json')
 
 const PHYSICAL_MOVE_BY_TYPE = {
   Bug: 'X-Scissor',
@@ -347,6 +348,7 @@ function parseChampionsSetFromAiMarkdown(markdown) {
   }
 
   const block = setBlockMatch[1]
+  const abilityMatch = block.match(/- \*\*Ability\*\*:\s*([^\n]+)/i)
   const natureMatch = block.match(/- \*\*Nature\*\*:\s*([^\n]+)/i)
   const evsMatch = block.match(/- \*\*EVs\*\*:\s*([^\n]+)/i)
   if (!natureMatch || !evsMatch) {
@@ -370,6 +372,7 @@ function parseChampionsSetFromAiMarkdown(markdown) {
   }
 
   return {
+    ability: abilityMatch ? decodeHtml(abilityMatch[1]).trim() : null,
     nature: normalizeNatureName(natureMatch[1]),
     evs32,
   }
@@ -481,6 +484,7 @@ function mkPokemon(name, opts = {}) {
     nature: opts.nature ?? 'Hardy',
     evs: opts.evs ?? {},
     ivs: opts.ivs ?? {},
+    ability: opts.ability,
     item: opts.item,
     ...(opts.overrides ? { overrides: opts.overrides } : {}),
   })
@@ -620,6 +624,56 @@ function champions32ToCalcEvs(evs32) {
   }
 }
 
+function normalizeEvs32(rawEvs32) {
+  const input = rawEvs32 && typeof rawEvs32 === 'object' ? rawEvs32 : {}
+  return {
+    hp: Math.max(0, Math.min(CHAMPIONS_EV_MAX, Number(input.hp) || 0)),
+    atk: Math.max(0, Math.min(CHAMPIONS_EV_MAX, Number(input.atk) || 0)),
+    def: Math.max(0, Math.min(CHAMPIONS_EV_MAX, Number(input.def) || 0)),
+    spa: Math.max(0, Math.min(CHAMPIONS_EV_MAX, Number(input.spa) || 0)),
+    spd: Math.max(0, Math.min(CHAMPIONS_EV_MAX, Number(input.spd) || 0)),
+    spe: Math.max(0, Math.min(CHAMPIONS_EV_MAX, Number(input.spe) || 0)),
+  }
+}
+
+function loadInternalDamageSetMap() {
+  if (!fs.existsSync(INTERNAL_DAMAGE_SETS_PATH)) {
+    return new Map()
+  }
+
+  let parsed
+  try {
+    parsed = JSON.parse(fs.readFileSync(INTERNAL_DAMAGE_SETS_PATH, 'utf8'))
+  } catch {
+    console.warn('[internal-damage-sets] invalid JSON; ignoring internal sets')
+    return new Map()
+  }
+
+  if (!parsed || typeof parsed !== 'object') {
+    return new Map()
+  }
+
+  const map = new Map()
+  for (const [speciesName, raw] of Object.entries(parsed)) {
+    if (!raw || typeof raw !== 'object') {
+      continue
+    }
+
+    const nature = typeof raw.nature === 'string' && raw.nature.trim()
+      ? normalizeNatureName(raw.nature)
+      : 'Hardy'
+      const ability = typeof raw.ability === 'string' && raw.ability.trim() ? raw.ability.trim() : null
+    const evs32 = normalizeEvs32(raw.evs32)
+    const moves = Array.isArray(raw.moves)
+      ? raw.moves.map((v) => String(v).trim()).filter(Boolean)
+      : []
+
+      map.set(toID(speciesName), { nature, ability, evs32, moves })
+  }
+
+  return map
+}
+
 const NATURE_BOOST_STAT = {
   Adamant: 'Atk', Brave: 'Atk', Lonely: 'Atk', Naughty: 'Atk',
   Modest: 'SpA', Quiet: 'SpA', Mild: 'SpA', Rash: 'SpA',
@@ -644,6 +698,13 @@ function formatChampionsEvsForCard(evs32, nature) {
     .map(([label, value]) => `${value}${label === boosted ? '+' : ''} ${label}`)
 
   return parts.length > 0 ? parts.join(' / ') : '0 HP'
+}
+
+function formatAttackingStatForCard(evs32, nature, isSpecialMove) {
+  const statLabel = isSpecialMove ? 'SpA' : 'Atk'
+  const statValue = isSpecialMove ? evs32.spa : evs32.atk
+  const boosted = NATURE_BOOST_STAT[nature] === statLabel
+  return `${statValue}${boosted ? '+' : ''} ${statLabel}`
 }
 
 function formatSpeedCardSetText(nature, evs32) {
@@ -681,20 +742,135 @@ function getDefaultDamageDefenderSet(entry) {
   }
 }
 
-function getDamageSetForEntry(entry, setMap, preferPhysical, role) {
+function getInternalDamageSetForEntry(entry, internalSetMap) {
+  const lookupKeys = [entry.displayName, entry.derivedFrom, entry.calcName]
+  for (const key of lookupKeys) {
+    const found = internalSetMap.get(toID(key))
+    if (found) {
+      return found
+    }
+  }
+  return null
+}
+
+function getDamageSetForEntry(entry, setMap, internalSetMap, preferPhysical, role) {
+  const internalSet = getInternalDamageSetForEntry(entry, internalSetMap)
+  if (internalSet) {
+    return {
+      nature: internalSet.nature,
+      ability: resolveAbility(entry, internalSet.ability),
+      evs32: internalSet.evs32,
+      source: 'internal-damage-set',
+      moves: internalSet.moves,
+    }
+  }
+
   const profile = setMap.get(entry.derivedFrom)
   if (profile && profile.championsSet) {
     return {
       nature: profile.championsSet.nature,
+      ability: resolveAbility(entry, profile.championsSet.ability),
       evs32: profile.championsSet.evs32,
       source: 'champions-ai-set',
+      moves: [],
     }
   }
 
   if (role === 'attacker') {
-    return getDefaultDamageAttackerSet(entry, preferPhysical)
+    return {
+      ...getDefaultDamageAttackerSet(entry, preferPhysical),
+      ability: resolveAbility(entry, null),
+      moves: [],
+    }
   }
-  return getDefaultDamageDefenderSet(entry)
+  return {
+    ...getDefaultDamageDefenderSet(entry),
+    ability: resolveAbility(entry, null),
+    moves: [],
+  }
+}
+
+const WEATHER_BY_ABILITY = {
+  Drought: 'Sun',
+  Drizzle: 'Rain',
+  'Sand Stream': 'Sand',
+  'Snow Warning': 'Snow',
+  'Orichalcum Pulse': 'Sun',
+}
+
+const DAMAGE_RELEVANT_ABILITIES = new Set([
+  'Drought',
+  'Drizzle',
+  'Sand Stream',
+  'Snow Warning',
+  'Orichalcum Pulse',
+  'Multiscale',
+  'Filter',
+  'Solid Rock',
+  'Fluffy',
+  'Thick Fat',
+  'Tough Claws',
+  'Technician',
+  'Sheer Force',
+  'Adaptability',
+  'Huge Power',
+  'Pure Power',
+  'Pixilate',
+  'Aerilate',
+  'Refrigerate',
+  'Galvanize',
+  'Punk Rock',
+  'Tinted Lens',
+  'Levitate',
+])
+
+function getDefaultAbilityForEntry(entry) {
+  const abilities = entry && entry.species ? entry.species.abilities : null
+  if (!abilities || typeof abilities !== 'object') {
+    return null
+  }
+  return abilities[0] ?? abilities['0'] ?? null
+}
+
+function resolveAbility(entry, explicitAbility) {
+  if (explicitAbility && typeof explicitAbility === 'string' && explicitAbility.trim()) {
+    return explicitAbility.trim()
+  }
+  return getDefaultAbilityForEntry(entry)
+}
+
+function isDamageRelevantAbility(ability) {
+  return !!ability && DAMAGE_RELEVANT_ABILITIES.has(ability)
+}
+
+function getWeatherFromAbility(ability) {
+  if (!ability || typeof ability !== 'string') {
+    return null
+  }
+  return WEATHER_BY_ABILITY[ability] ?? null
+}
+
+function resolveWeatherFromAbilities(attackerAbility, defenderAbility) {
+  const attackerWeather = getWeatherFromAbility(attackerAbility)
+  const defenderWeather = getWeatherFromAbility(defenderAbility)
+  if (attackerWeather && defenderWeather) {
+    return attackerWeather === defenderWeather ? attackerWeather : null
+  }
+  return attackerWeather ?? defenderWeather ?? null
+}
+
+function buildAbilityNote(attackerAbility, defenderAbility, weather) {
+  const parts = []
+  if (isDamageRelevantAbility(attackerAbility)) {
+    parts.push(`Atk Ability: ${attackerAbility}`)
+  }
+  if (isDamageRelevantAbility(defenderAbility)) {
+    parts.push(`Def Ability: ${defenderAbility}`)
+  }
+  if (weather) {
+    parts.push(`Weather: ${weather}`)
+  }
+  return parts.length > 0 ? parts.join(', ') : null
 }
 
 function getSpeedSetForEntry(entry) {
@@ -777,6 +953,47 @@ function choosePikalyticsMove(entry, profile, isPhysical) {
   return results[0] ?? null
 }
 
+function chooseInternalSetMoves(entry, internalMoves, isPhysical, maxMoves = 1, defenderTypes = null) {
+  if (!Array.isArray(internalMoves) || internalMoves.length === 0) {
+    return []
+  }
+
+  const preferred = []
+  const acceptable = []
+  const desiredCategory = isPhysical ? 'Physical' : 'Special'
+  const stabTypes = new Set(entry.species.types)
+
+  for (const moveName of internalMoves) {
+    const move = showdownDex.moves.get(moveName)
+    if (!move || !move.exists || move.basePower <= 0) {
+      continue
+    }
+    if (UNSUITABLE_OFFENSIVE_MOVE_IDS.has(move.id)) {
+      continue
+    }
+    if (!canUseMoveInCalc(move.name)) {
+      continue
+    }
+    if (defenderTypes) {
+      const eff = getTypeEffectiveness(move.type, defenderTypes)
+      if (eff < 1) {
+        continue
+      }
+    }
+
+    const isDesiredCategory = move.category === desiredCategory
+    const isStab = stabTypes.has(move.type)
+
+    if (isDesiredCategory && isStab) {
+      preferred.push(move.name)
+    } else {
+      acceptable.push(move.name)
+    }
+  }
+
+  return [...preferred, ...acceptable].slice(0, maxMoves)
+}
+
 function readPokemonSpeedStat(pokemon, fallback) {
   if (pokemon && pokemon.rawStats && Number.isFinite(pokemon.rawStats.spe)) {
     return pokemon.rawStats.spe
@@ -787,7 +1004,7 @@ function readPokemonSpeedStat(pokemon, fallback) {
   return fallback
 }
 
-function buildDamageCards(legalEntries, setMap) {
+function buildDamageCards(legalEntries, setMap, internalSetMap) {
   const TARGET = 150
   const cards = []
   const usedPairs = new Set()
@@ -811,8 +1028,20 @@ function buildDamageCards(legalEntries, setMap) {
       const defenderEntry = defenders[(defCursor + defAttempt) % defenders.length]
       if (defenderEntry.displayName === atkEntry.displayName) continue
 
+      const attackerSet = getDamageSetForEntry(atkEntry, setMap, internalSetMap, isPhysical, 'attacker')
+      const defenderSet = getDamageSetForEntry(defenderEntry, setMap, internalSetMap, false, 'defender')
+
       // Get moves that are neutral or super effective vs this defender
-      const moveList = choosePikalyticsMoves(atkEntry, profile, isPhysical, 4, defenderEntry.species.types)
+      let moveList = chooseInternalSetMoves(
+        atkEntry,
+        attackerSet.moves,
+        isPhysical,
+        4,
+        defenderEntry.species.types,
+      )
+      if (moveList.length === 0) {
+        moveList = choosePikalyticsMoves(atkEntry, profile, isPhysical, 4, defenderEntry.species.types)
+      }
       if (moveList.length === 0) continue
 
       let addedForThisPair = 0
@@ -822,8 +1051,6 @@ function buildDamageCards(legalEntries, setMap) {
         if (usedPairs.has(pairKey)) continue
         usedPairs.add(pairKey)
 
-        const attackerSet = getDamageSetForEntry(atkEntry, setMap, isPhysical, 'attacker')
-        const defenderSet = getDamageSetForEntry(defenderEntry, setMap, false, 'defender')
         const attackerCalcEvs = champions32ToCalcEvs(attackerSet.evs32)
         const defenderCalcEvs = champions32ToCalcEvs(defenderSet.evs32)
 
@@ -831,21 +1058,26 @@ function buildDamageCards(legalEntries, setMap) {
           const attacker = mkPokemon(atkEntry.calcName, {
             nature: attackerSet.nature,
             evs: attackerCalcEvs,
+            ability: attackerSet.ability,
             ...(atkEntry.customStats ? { overrides: atkEntry.customStats } : {}),
           })
           const defender = mkPokemon(defenderEntry.calcName, {
             nature: defenderSet.nature,
             evs: defenderCalcEvs,
+            ability: defenderSet.ability,
             ...(defenderEntry.customStats ? { overrides: defenderEntry.customStats } : {}),
           })
           const move = new Move(gen9, moveName)
           const isSpecialMove = move.category === 'Special'
           const isTyranitarTarget =
             defenderEntry.displayName === 'Tyranitar' || defenderEntry.displayName === 'Mega Tyranitar'
+          const abilityWeather = resolveWeatherFromAbilities(attackerSet.ability, defenderSet.ability)
           const field =
-            isSpecialMove && isTyranitarTarget
-              ? new Field({ gameType: 'Doubles', weather: 'Sand' })
-              : DOUBLES_FIELD
+            abilityWeather
+              ? new Field({ gameType: 'Doubles', weather: abilityWeather })
+              : isSpecialMove && isTyranitarTarget
+                ? new Field({ gameType: 'Doubles', weather: 'Sand' })
+                : DOUBLES_FIELD
 
           const result = calculate(gen9, attacker, defender, move, field)
           const [lo, hi] = result.range()
@@ -853,11 +1085,12 @@ function buildDamageCards(legalEntries, setMap) {
           const expectedMin = Math.round((lo / hp) * 1000) / 10
           const expectedMax = Math.round((hi / hp) * 1000) / 10
           if (expectedMax <= 0) continue
+          const abilityNote = buildAbilityNote(attackerSet.ability, defenderSet.ability, abilityWeather)
 
           cards.push({
             id: `d-regma-${cardIdx}`,
             type: 'damage',
-            attacker: `${formatChampionsEvsForCard(attackerSet.evs32, attackerSet.nature)} ${atkEntry.displayName}`,
+            attacker: `${formatAttackingStatForCard(attackerSet.evs32, attackerSet.nature, isSpecialMove)} ${atkEntry.displayName}`,
             move: moveName,
             defender: `${isSpecialMove && isTyranitarTarget ? 'Sand, ' : ''}${formatChampionsEvsForCard(defenderSet.evs32, defenderSet.nature)} ${defenderEntry.displayName}`,
             attackerInfo: {
@@ -872,7 +1105,9 @@ function buildDamageCards(legalEntries, setMap) {
             },
             expectedMin,
             expectedMax,
-            formatNote: `Regulation M-A, Level 50`,
+            formatNote: abilityNote
+              ? `Regulation M-A, Level 50, ${abilityNote}`
+              : `Regulation M-A, Level 50`,
           })
           cardIdx++
           addedForThisPair++
@@ -927,13 +1162,14 @@ async function main() {
   const usageMarkdown = await fetchText(PIKALYTICS_AI_USAGE_URL)
   const rawNames = extractUsageSpeciesFromMarkdown(usageMarkdown, USAGE_THRESHOLD_PERCENT)
   const pikalyticsSetMap = await buildPikalyticsSetMap(rawNames)
+  const internalDamageSetMap = loadInternalDamageSetMap()
   const { resolved: legalEntries, unresolved, proxies } = resolveLegalSpecies(rawNames)
 
   if (legalEntries.length === 0) {
     throw new Error('No legal species resolved from Pikalytics usage source.')
   }
 
-  const damageCards = buildDamageCards(legalEntries, pikalyticsSetMap)
+  const damageCards = buildDamageCards(legalEntries, pikalyticsSetMap, internalDamageSetMap)
   const speedCards = buildSpeedCards(legalEntries, pikalyticsSetMap)
 
   const allCards = [...damageCards, ...speedCards]
@@ -959,6 +1195,7 @@ async function main() {
       unresolvedEntries: unresolved.slice(0, 50),
       unresolvedCount: unresolved.length,
       customStatEntries: proxies,
+      internalDamageSetSpecies: internalDamageSetMap.size,
     },
   }
 

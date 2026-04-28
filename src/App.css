@@ -307,6 +307,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.45rem;
+  flex-wrap: wrap;
 }
 
 .poke-sprite {
@@ -321,6 +322,18 @@ body {
   gap: 0.25rem;
 }
 
+.ability-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.12rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #09365e;
+  background: #e5f2ff;
+  border: 1px solid #9fc4e8;
+}
+
 .type-icon {
   height: 16px;
   width: auto;
@@ -330,6 +343,46 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
+}
+
+.weather-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.08rem 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+.weather-sun {
+  color: #7a2d00;
+  background: #ffd8aa;
+  border-color: #e59f4a;
+}
+
+.weather-rain {
+  color: #0f3b66;
+  background: #cce7ff;
+  border-color: #79acd8;
+}
+
+.weather-sand {
+  color: #5b4200;
+  background: #f0e1b5;
+  border-color: #c1a56b;
+}
+
+.weather-snow {
+  color: #1a4f65;
+  background: #def6ff;
+  border-color: #93c9dd;
+}
+
+.weather-neutral {
+  color: #284055;
+  background: #e7edf3;
+  border-color: #b7c7d6;
 }
 
 .sprite-fallback-badge {
