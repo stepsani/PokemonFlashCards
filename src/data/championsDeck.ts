@@ -95,7 +95,7 @@ export async function loadChampionsDeck(): Promise<DeckLoadResult> {
   let response: Response
 
   try {
-    response = await fetch('/champions-deck.json', { cache: 'no-store' })
+    response = await fetch(`${import.meta.env.BASE_URL}champions-deck.json`, { cache: 'no-store' })
   } catch {
     return {
       ok: false,
