@@ -64,6 +64,17 @@ async function generateDexMap() {
       lookupId = lookupId.replace(/blade$/, '').replace(/shield$/, '')
     }
 
+    // Handle regional variants: restore hyphens for PokeAPI lookup
+    // e.g., "ninetalesalola" → "ninetales-alola"
+    const regionalVariants = ['alola', 'galar', 'hisui', 'paldea']
+    for (const variant of regionalVariants) {
+      if (lookupId.endsWith(variant)) {
+        const baseName = lookupId.slice(0, -variant.length)
+        lookupId = `${baseName}-${variant}`
+        break
+      }
+    }
+
     const dexNum = await fetchPokemon(lookupId)
     if (dexNum) {
       dexMap[id] = dexNum
