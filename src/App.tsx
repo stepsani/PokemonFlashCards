@@ -470,12 +470,10 @@ function SpriteWithFallback({
 function SpeedBattleSlot({
   label,
   name,
-  nature,
   orientation,
 }: {
   label: 'A' | 'B'
   name: string
-  nature: string
   orientation: 'player' | 'opponent'
 }) {
   return (
@@ -493,7 +491,6 @@ function SpeedBattleSlot({
           showBadge
         />
       </div>
-      <p className="battle-nature">{nature}</p>
     </div>
   )
 }
@@ -816,20 +813,18 @@ function App() {
                 </>
               ) : (
                 <>
-                  <h3>Who is faster?</h3>
+                  <h3>Who has the higher base Speed?</h3>
                   <p className="meta">{activeCard.context}</p>
 
                   <div className="speed-battlefield">
                     <SpeedBattleSlot
                       label="A"
                       name={activeCard.pokemonA.name}
-                      nature={activeCard.pokemonA.nature}
                       orientation="player"
                     />
                     <SpeedBattleSlot
                       label="B"
                       name={activeCard.pokemonB.name}
-                      nature={activeCard.pokemonB.nature}
                       orientation="opponent"
                     />
                   </div>

@@ -36,12 +36,10 @@ export const sampleDeck: FlashCard[] = [
     type: 'speed',
     pokemonA: {
       name: 'Garchomp',
-      nature: 'Jolly, 252 Spe',
       baseSpeed: 102,
     },
     pokemonB: {
       name: 'Urshifu-Rapid-Strike',
-      nature: 'Jolly, 252 Spe',
       baseSpeed: 97,
     },
     context: 'Level 50, no Tailwind, no speed boosts',
@@ -51,12 +49,10 @@ export const sampleDeck: FlashCard[] = [
     type: 'speed',
     pokemonA: {
       name: 'Amoonguss',
-      nature: 'Sassy, 0 Spe IV',
       baseSpeed: 30,
     },
     pokemonB: {
       name: 'Torkoal',
-      nature: 'Quiet, 0 Spe IV',
       baseSpeed: 20,
     },
     context: 'Trick Room turn: lower speed moves first',
@@ -66,12 +62,10 @@ export const sampleDeck: FlashCard[] = [
     type: 'speed',
     pokemonA: {
       name: 'Iron Bundle',
-      nature: 'Timid, 252 Spe',
       baseSpeed: 136,
     },
     pokemonB: {
       name: 'Flutter Mane',
-      nature: 'Timid, 252 Spe',
       baseSpeed: 135,
     },
     context: 'Level 50, no Choice Scarf, no Booster Energy speed boost',

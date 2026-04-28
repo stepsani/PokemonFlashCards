@@ -57,10 +57,8 @@ function isSpeedCard(value: unknown): boolean {
 
   return (
     typeof pokemonA.name === 'string' &&
-    typeof pokemonA.nature === 'string' &&
     (isNumber(pokemonA.baseSpeed) || isNumber(pokemonA.speedStat)) &&
     typeof pokemonB.name === 'string' &&
-    typeof pokemonB.nature === 'string' &&
     (isNumber(pokemonB.baseSpeed) || isNumber(pokemonB.speedStat))
   )
 }

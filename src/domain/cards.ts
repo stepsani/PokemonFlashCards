@@ -24,12 +24,10 @@ export type SpeedCard = {
   type: 'speed'
   pokemonA: {
     name: string
-    nature: string
     baseSpeed: number
   }
   pokemonB: {
     name: string
-    nature: string
     baseSpeed: number
   }
   context?: string
