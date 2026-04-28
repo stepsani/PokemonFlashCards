@@ -98,6 +98,15 @@ async function generateDexMap() {
       lookupId = lookupId.replace(/blade$/, '').replace(/shield$/, '')
     }
 
+    // Handle Rotom appliance forms: rotomheat -> rotom-heat, etc.
+    if (lookupId.startsWith('rotom')) {
+      const rotomForm = lookupId.slice('rotom'.length)
+      const validRotomForms = new Set(['heat', 'wash', 'frost', 'fan', 'mow'])
+      if (validRotomForms.has(rotomForm)) {
+        lookupId = `rotom-${rotomForm}`
+      }
+    }
+
     // Handle regional variants: restore hyphens for PokeAPI lookup
     // e.g., "ninetalesalola" → "ninetales-alola"
     const regionalVariants = ['alola', 'galar', 'hisui', 'paldea']

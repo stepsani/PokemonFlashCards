@@ -1,7 +1,7 @@
 {
   "source": "pokemon-champions",
   "sourceVersion": "pikalytics-champions-usage>2+@smogon/calc@0.11.0",
-  "generatedAt": "2026-04-28T16:09:43.598Z",
+  "generatedAt": "2026-04-28T16:18:23.396Z",
   "notes": "Generated from Pikalytics Champions Tournaments usage list (usage > 2%) and Champions AI move usage. Speed cards use max Speed + max attacking stat with best speed nature. Damage cards use Champions 32-point EV model and are converted to Gen9 EVs for @smogon/calc calculations.",
   "cards": [
     {

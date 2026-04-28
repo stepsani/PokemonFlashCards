@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "generate-deck": "node scripts/generate-deck.cjs",
+    "generate-dex-map": "node scripts/generate-dex-map.cjs",
     "dev": "vite",
-    "build": "npm run generate-deck && tsc -b && vite build",
+    "build": "npm run generate-deck && npm run generate-dex-map && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
